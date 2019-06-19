@@ -61,8 +61,8 @@ class Food < Store
 end
 
 food1 = Food.new(color: "green", scent: "sour", jar_shape: "cylinder")
-p food1.smell
-p candle1.taste
-p food1.print_info
-p food1.shelf_life(3)
+# p food1.smell
+# p candle1.taste
+# p food1.print_info
+# p food1.shelf_life(3)
 
