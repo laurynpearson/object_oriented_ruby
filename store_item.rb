@@ -34,11 +34,11 @@ class Candles
   attr_reader :price
   attr_reader :jar_shape
   attr_reader :color
-  def initialize(scent, price, jar_shape, color)
-    @scent = scent
-    @price = price
-    @jar_shape = jar_shape
-    @color = color
+  def initialize(candle_properties)
+    @scent = candle_properties[:scent]
+    @price = candle_properties[:price]
+    @jar_shape = candle_properties[:jar_shape]
+    @color = candle_properties[:color]
   end
 
   # def scent
@@ -69,16 +69,17 @@ class Candles
     print_info = "The scent is #{@scent}, it costs $#{@price}, the jar shape is #{@jar_shape}, the color is #{@color}"
   end
 end
-candle1 = Candles.new("vanilla", 2.5, "round", "green")
-# p candle1.print_info
-# p candle1.price
-candle2 = Candles.new("Fresh Laundry", 5.75, "triangle", "purple")
-p candle2.print_info
-# p candle1.scent
-# p candle1.scent
-# candle1.scent = "Peach"
-# p candle1.scent
+candle1 = Candles.new(scent: "vanilla", price: 2.5, jar_shape: "round", color: "green")
+p candle1.scent
+p candle1.print_info
+# # p candle1.price
+candle2 = Candles.new(scent: "Fresh Laundry", price: 5.75, jar_shape: "triangle", color:"purple")
+# p candle2.print_info
+# # p candle1.scent
+# # p candle1.scent
+# # candle1.scent = "Peach"
+# # p candle1.scent
 
-p candle2.price
-candle2.price = 2
-p candle2.price
+# p candle2.price
+# candle2.price = 2
+# p candle2.price
