@@ -28,6 +28,12 @@
 # a) Choose which attributes should have “reader” methods and which attributes should have “writer” methods.
 # b) Create an instance from your store item class. Use puts statements to print the 3 attributes individually to the terminal.
 class Candles
+  attr_writer :scent
+  attr_reader :scent
+  # attr_writer :price
+  attr_reader :price
+  attr_reader :jar_shape
+  attr_reader :color
   def initialize(scent, price, jar_shape, color)
     @scent = scent
     @price = price
@@ -35,37 +41,44 @@ class Candles
     @color = color
   end
 
-  def scent
-  @scent
-  end
+  # def scent
+  # @scent
+  # end
 
-  def scent=(smell)
-  @scent = scent
-  end
+  # def scent=(smell)
+  # @scent = scent
+  # end
 
 # reader/getter
-  def price
-  @price
-  end
+  # def price
+  # @price
+  # end
 # writer/setter
   def price=(number)
-    @price = price
+    @price = price * 3.25
   end
 
-  def jar_shape
-  @jar_shape
-  end
+  # def jar_shape
+  # @jar_shape
+  # end
 
-  def color
-    @color
-  end
+  # def color
+  #   @color
+  # end
   def print_info
     print_info = "The scent is #{@scent}, it costs $#{@price}, the jar shape is #{@jar_shape}, the color is #{@color}"
   end
 end
 candle1 = Candles.new("vanilla", 2.5, "round", "green")
-p candle1.print_info
-p candle1.price
+# p candle1.print_info
+# p candle1.price
 candle2 = Candles.new("Fresh Laundry", 5.75, "triangle", "purple")
 p candle2.print_info
-p candle1.scent
+# p candle1.scent
+# p candle1.scent
+# candle1.scent = "Peach"
+# p candle1.scent
+
+p candle2.price
+candle2.price = 2
+p candle2.price
