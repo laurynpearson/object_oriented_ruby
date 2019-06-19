@@ -27,59 +27,42 @@
 # Rewrite your store items using a class instead of a hash.
 # a) Choose which attributes should have “reader” methods and which attributes should have “writer” methods.
 # b) Create an instance from your store item class. Use puts statements to print the 3 attributes individually to the terminal.
-class Candles
-  attr_writer :scent
-  attr_reader :scent
-  # attr_writer :price
-  attr_reader :price
-  attr_reader :jar_shape
-  attr_reader :color
-  def initialize(candle_properties)
-    @scent = candle_properties[:scent]
-    @price = candle_properties[:price]
-    @jar_shape = candle_properties[:jar_shape]
-    @color = candle_properties[:color]
+class Store
+  def initialize(product_properties)
+    @scent = product_properties[:scent]
+    @price = product_properties[:price]
+    @jar_shape = product_properties[:jar_shape]
+    @color = product_properties[:color]
   end
 
-  # def scent
-  # @scent
-  # end
-
-  # def scent=(smell)
-  # @scent = scent
-  # end
-
-# reader/getter
-  # def price
-  # @price
-  # end
-# writer/setter
-  def price=(number)
-    @price = price * 3.25
-  end
-
-  # def jar_shape
-  # @jar_shape
-  # end
-
-  # def color
-  #   @color
-  # end
   def print_info
     print_info = "The scent is #{@scent}, it costs $#{@price}, the jar shape is #{@jar_shape}, the color is #{@color}"
   end
 end
-candle1 = Candles.new(scent: "vanilla", price: 2.5, jar_shape: "round", color: "green")
-p candle1.scent
-p candle1.print_info
-# # p candle1.price
-candle2 = Candles.new(scent: "Fresh Laundry", price: 5.75, jar_shape: "triangle", color:"purple")
-# p candle2.print_info
-# # p candle1.scent
-# # p candle1.scent
-# # candle1.scent = "Peach"
-# # p candle1.scent
 
-# p candle2.price
-# candle2.price = 2
-# p candle2.price
+class Candles < Store
+  def texture
+    return "silky"
+  end
+  def taste
+    return "not edible"
+  end
+end
+candle1 = Candles.new(scent: "vanilla", price: 2.5, jar_shape: "round", color: "green")
+candle2 = Candles.new(scent: "Fresh Laundry", price: 5.75, jar_shape: "triangle", color:"purple")
+
+class Food < Store
+  def smell
+    return "pew pew"
+  end
+  def shelf_life(number)
+    return "#{number} months"
+  end
+end
+
+food1 = Food.new(color: "green", scent: "sour", jar_shape: "cylinder")
+p food1.smell
+p candle1.taste
+p food1.print_info
+p food1.shelf_life(3)
+
